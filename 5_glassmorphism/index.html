@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Glassmoprhism</title>
+  </head>
+  <body>
+    <img
+      src="./pawel-czerwinski-6uY0KZo2zOE-unsplash.jpg"
+      alt="abstract background"
+    />
+    <div class="circle"></div>
+    <div class="container" id="glass">
+      <h2 class="seq">Hello everyone</h2>
+      <p class="seq">Let's go ahead and get this show on the road</p>
+    </div>
+
+    <h1>Glassmoprhism Realized</h1>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script>
+      const glass = document.getElementById("glass");
+
+      const tl = gsap.timeline({
+        defaults: { ease: "power2.inOut", duration: 1.5 },
+      });
+
+      tl.from("img", { x: "-10%", opacity: 0 })
+        .from(".container", { opacity: 0, delay: 0.5, duration: 2 }, "-=1.5")
+        .from(".container", { x: "-100%", backdropFilter: "blur(0px)" })
+        .from(
+          ".seq",
+          { y: -30, opacity: 0, stagger: 0.2, duration: 0.5 },
+          "-=.5"
+        )
+        .from("h1", { y: 20, clipPath: "inset(0 0 100% 0)" }, "-=.8");
+    </script>
+  </body>
+</html>
