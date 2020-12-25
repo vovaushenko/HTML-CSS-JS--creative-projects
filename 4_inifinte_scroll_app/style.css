@@ -7,15 +7,60 @@ html {
 body {
   margin: 0;
   font-family: 'Bebas Neue', sans-serif;
-  background: whitesmoke;
+  background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+    radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+    linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
 }
 
-h1 {
+/* h1 {
   text-align: center;
   margin-top: 25px;
   margin-bottom: 15px;
   font-size: 40px;
   letter-spacing: 4px;
+} */
+
+.navbar {
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%),
+    radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%),
+    radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent),
+    linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+}
+
+.navbar .logo {
+  align-items: center;
+
+  letter-spacing: 4px;
+  margin: auto 10px;
+}
+
+.navbar .links {
+  display: flex;
+  justify-content: space-between;
+  margin: auto 5px;
+}
+
+.navbar .links li {
+  list-style-type: none;
+}
+
+.navbar .links li a {
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0 15px;
+  color: black;
 }
 
 /* Loader */
@@ -38,6 +83,15 @@ h1 {
 /* Image Container */
 .image-container {
   margin: 10px 30%;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1em;
+  border-radius: 3em;
+  z-index: 1;
+
+  backdrop-filter: blur(40px);
+  border: solid 2px transparent;
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rba(46, 54, 68, 0.03);
 }
 
 .image-container img {
