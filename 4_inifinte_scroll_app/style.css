@@ -97,6 +97,11 @@ body {
 .image-container img {
   width: 100%;
   margin-top: 5px;
+  border-radius: 3em;
+}
+
+.image-container img:hover {
+  opacity: 0.9;
 }
 
 /* Media Query: Large Smartphone */
