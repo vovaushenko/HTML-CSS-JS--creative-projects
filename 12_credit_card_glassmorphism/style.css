@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    overflow: hidden;
+}
+
+section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1b262c;
+}
+
+section::after {
+    content: '';
+    position: absolute;
+    bottom: -40%;
+    right: -200px;
+    width: 900px;
+    height: 900px;
+    background: rgb(0, 183, 194);
+    background: linear-gradient(0deg, rgba(0, 183, 194, 1) 27%, rgba(253, 203, 158, 1) 81%);
+    border-radius: 50%;
+}
+section::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: -200px;
+    width: 900px;
+    height: 900px;
+    background: rgb(0, 183, 194);
+    background: linear-gradient(0deg, rgba(0, 183, 194, 1) 27%, rgba(253, 203, 158, 1) 81%);
+    border-radius: 50%;
+}
+
+.card {
+    position: relative;
+    width: 508px;
+    height: 314px;
+    transform-style: preserve-3d;
+    z-index: 1;
+    perspective: 1000px;
+}
+
+.card .face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    transform-style: preserve-3d;
+    transition: 1s;
+    backface-visibility: hidden;
+}
+
+.card:hover .face.front {
+    transform: rotateY(180deg);
+}
+.card .face.back {
+    transform: rotateY(180deg);
+}
+.card:hover .face.back {
+    transform: rotateY(360deg);
+}
+
+.card .face.front::before,
+.card .face.front::after {
+    content: '';
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.card .face.front::after {
+    right: 80px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.card .face.front .debit {
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+}
+.card .face.front .name {
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+    color: #fff;
+}
+
+.card .face.front .chipImg {
+    position: absolute;
+    top: 80px;
+    left: 40px;
+    max-width: 60px;
+}
+
+.card .face.front .number {
+    position: absolute;
+    width: 100%;
+    bottom: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    letter-spacing: 6px;
+    font-size: 25px;
+    text-shadow: 0 2px 10px #000;
+    font-family: 'Electrolize', sans-serif;
+    text-align: center;
+}
+
+.card .face.front .data {
+    position: absolute;
+    bottom: 90px;
+    left: 40px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.card .face.front .cardName {
+    position: absolute;
+    bottom: 45px;
+    left: 40px;
+    font-size: 18px;
+    letter-spacing: 6px;
+    font-family: 'Electrolize', sans-serif;
+    color: #fff;
+    text-shadow: 0 2px 10px #000;
+    text-transform: uppercase;
+}
+
+.card .face.back .blackBar {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #000;
+}
+
+.card .face.back .cvvText {
+    position: absolute;
+    top: 150px;
+    left: 40px;
+}
+
+.card .face.back .cvvText h5 {
+    font-size: 8px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.card .face.back .cvvText .whiteBar {
+    position: relative;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+}
+
+.card .face.back .cvvText .whiteBar::after,
+.card .face.back .cvvText .whiteBar::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(0, 183, 194, 1) 50%);
+}
+
+.card .face.back .cvvText .whiteBar::before {
+    top: 25px;
+}
+
+.card .face.back .cvvText .cvv {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 25px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.card .face.back p {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    right: 40px;
+    font-size: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.chip {
+    position: absolute;
+    top: 80px;
+    left: 40px;
+    width: 63px;
+    height: 49px;
+    border-radius: 10px;
+    background-color: #ffd76e;
+    border: 2px solid #000;
+}
+
+.chip span:nth-child(1),
+.chip span:nth-child(2),
+.chip span:nth-child(3),
+.chip span:nth-child(4) {
+    position: absolute;
+    width: 21px;
+    height: 3px;
+    background-color: #000;
+}
+
+.chip span:nth-child(1) {
+    top: 15px;
+    left: 0;
+}
+.chip span:nth-child(2) {
+    bottom: 15px;
+    left: 0;
+}
+
+.chip span:nth-child(3) {
+    top: 15px;
+    right: 0;
+}
+.chip span:nth-child(4) {
+    bottom: 15px;
+    right: 0;
+}
+
+.chip span:nth-child(5),
+.chip span:nth-child(6) {
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background-color: #000;
+}
+
+.chip span:nth-child(5) {
+    top: 0;
+    left: 21px;
+}
+.chip span:nth-child(6) {
+    top: 0;
+    right: 21px;
+}
+
+.chip span:nth-child(7) {
+    position: absolute;
+    width: 3px;
+    height: 10px;
+    background-color: #000;
+}
+
+.chip span:nth-child(7) {
+    top: 20px;
+    left: 7px;
+}
+
+.chip span:nth-child(8) {
+    position: absolute;
+    width: 15px;
+    height: 3px;
+    background-color: #000;
+}
+
+.chip span:nth-child(8) {
+    top: 37px;
+    left: 22px;
+}
+
+.chip span:nth-child(9) {
+    position: absolute;
+    width: 15px;
+    height: 3px;
+    background-color: #000;
+}
+
+.chip span:nth-child(9) {
+    top: 20px;
+    left: 22px;
+}
+
+.chip span:nth-child(10) {
+    position: absolute;
+    width: 3px;
+    height: 20px;
+    background-color: #000;
+}
+
+.chip span:nth-child(10) {
+    top: 10px;
+    right: 10px;
+}
